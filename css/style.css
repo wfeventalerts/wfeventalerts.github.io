@@ -1,0 +1,43 @@
+body {
+	background: #121212;
+	color: #fff;
+	font-family: Helvetica Neue,Helvetica,Arial,sans-serif; 
+}
+
+#content {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.mission {
+	display: flex;
+	flex: 0 1 calc(50% - .5em);
+	margin-bottom: 1em;
+	background: #282828;
+	border-radius: 5px;
+}
+.container {
+	padding: 2px 16px;
+	display:flex; 
+	flex-direction:column; 
+	flex:1;
+}
+	.container p,h4{
+		margin: 5px 0 7px 0;
+	}
+	.container .countdown-container{
+		margin-top: auto;
+	}
+	.mission .countdown{
+		font-weight: bold;
+		color:indianred;
+	}
+
+	.mission:nth-child(2) .countdown{
+		color:cornflowerblue;
+	}
+
+	.mission:nth-child(3) .countdown{
+		color:lightgreen;
+	}
