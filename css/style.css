@@ -41,3 +41,7 @@ body {
 	.mission:nth-child(3) .countdown{
 		color:lightgreen;
 	}
+
+	.mission:nth-child(4) .countdown{
+		color:greenyellow;
+	}
