@@ -22,8 +22,12 @@ fetch(url, { cache: cacheControl })
 		let alerts = data.alerts;
 		let container = document.getElementById("content")
 		let missionsHTML = ``
-		let now = Date.now()
 		let prevTs = 0
+
+		if (alerts.length == 0) {
+			container.innerHTML = `<h2>No Active Events</h2>`
+			return
+		}
 
 		alerts.forEach(alert => {
 			if (alert.tag == undefined || alert.tag != "JadeShadows") {
