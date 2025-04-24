@@ -45,33 +45,44 @@
 			</div>
 		</div>
 		<script>
-			const w = document.querySelectorAll(".weapon");
+			(function () {
+				const w = document.querySelectorAll(".weapon");
+				const minV = 25;
+				const maxV = 60;
 
-			handler();
-			w.forEach((f) => {
-				f.addEventListener("input", handler);
-			});
+				handler();
+				w.forEach((f) => {
+					f.addEventListener("input", handler);
+				});
 
-			function handler() {
-				let val1 = parseFloat(document.getElementById("weapon1").value);
-				let val2 = parseFloat(document.getElementById("weapon2").value);
-				let largerVal = 0;
-				let fusionVal = 0;
+				function handler() {
+					let result = document.getElementById("result");
+					let val1 = parseFloat(document.getElementById("weapon1").value);
+					let val2 = parseFloat(document.getElementById("weapon2").value);
+					let largerVal = 0;
+					let fusionVal = 0;
 
-				if (val1 > val2) {
-					largerVal = val1;
-				} else {
-					largerVal = val2;
+					if (val1 < minV || val1 > maxV || val2 < minV || val2 > maxV) {
+						result.innerHTML = "Invalid value entered";
+						result.classList.add("error");
+						return;
+					}
+					result.classList.remove("error");
+					if (val1 > val2) {
+						largerVal = val1;
+					} else {
+						largerVal = val2;
+					}
+
+					fusionVal = largerVal * 1.1;
+
+					if (fusionVal >= 58) {
+						fusionVal = 60;
+					}
+
+					result.innerHTML = fusionVal.toFixed(1);
 				}
-
-				fusionVal = largerVal * 1.1;
-
-				if (fusionVal >= 58) {
-					fusionVal = 60;
-				}
-
-				document.getElementById("result").innerHTML = fusionVal.toFixed(1);
-			}
+			})();
 		</script>
 	</body>
 </html>

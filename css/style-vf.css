@@ -1,9 +1,13 @@
 :root {
-	--page-bg-light: white;
+	--page-bg-light: #ffffff;
+	--page-bg-dark: rgb(30, 31, 33);
+	--page-fg-dark: #ffffff;
 	--border-light: rgba(0, 0, 0, 0.125);
 	--border-radius: 0.125rem;
 	--font: Helvetica Neue, Helvetica, Arial, sans-serif;
 	--font-size: 1rem;
+	--dark-field-bg: rgba(0, 0, 0, 0.76);
+	--dark-field-fg: #ffffff;
 }
 
 body {
@@ -48,4 +52,21 @@ body {
 
 .result {
 	font-size: 1.5rem;
+}
+
+#result.error {
+	color: #ff746c;
+}
+
+@media (prefers-color-scheme: dark) {
+	body {
+		color: var(--page-fg-dark);
+		background: var(--page-bg-dark);
+	}
+
+	.form-field input {
+		background: var(--dark-field-bg);
+		color: var(--dark-field-fg);
+		box-shadow: 0 4px 8px 0 rgba(21, 21, 21, 0.2);
+	}
 }
