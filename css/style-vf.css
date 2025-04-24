@@ -1,0 +1,51 @@
+:root {
+	--page-bg-light: white;
+	--border-light: rgba(0, 0, 0, 0.125);
+	--border-radius: 0.125rem;
+	--font: Helvetica Neue, Helvetica, Arial, sans-serif;
+	--font-size: 1rem;
+}
+
+body {
+	font-family: var(--font);
+	background: var(--page-bg-light);
+}
+
+#valence-fusion,
+.form-field {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	align-content: stretch;
+	align-items: flex-start;
+	margin-bottom: 10px;
+}
+
+.form-field {
+	order: 0;
+	flex: 0 1 auto;
+	align-self: auto;
+}
+
+.form-field label {
+	font-size: var(--font-size);
+}
+
+.form-field input {
+	border: 1px solid var(--border-light);
+	border-radius: var(--border-radius);
+	box-sizing: border-box;
+	font-size: var(--font-size);
+	height: 2.25rem;
+	line-height: 1.25rem;
+	margin-top: 0.25rem;
+	order: 2;
+	padding: 0.25rem 0.5rem;
+	width: 15rem;
+	transition: all 0.25s;
+}
+
+.result {
+	font-size: 1.5rem;
+}

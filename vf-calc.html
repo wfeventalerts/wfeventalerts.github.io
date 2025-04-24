@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Warframe Valence Fusion Calculator</title>
+		<link rel="stylesheet" href="css/style-vf.css" />
+	</head>
+
+	<body>
+		<div id="content">
+			<h1>Valence Fusion Calculator</h1>
+			<div id="valence-fusion">
+				<div class="form-field">
+					<label for="weapon1">Weapon 1:</label>
+					<input
+						type="number"
+						name="weapon1"
+						id="weapon1"
+						class="weapon"
+						value="25"
+						min="25"
+						max="60"
+						step=".1"
+						autocomplete="off"
+					/>
+				</div>
+				<div class="form-field">
+					<label for="weapon2">Weapon 2:</label>
+					<input
+						type="number"
+						name="weapon2"
+						id="weapon2"
+						class="weapon"
+						value="25"
+						min="25"
+						max="60"
+						step=".1"
+						autocomplete="off"
+					/>
+				</div>
+				<div class="result">
+					<p>Your Weapon's Final Bonus: <span id="result"></span></p>
+				</div>
+			</div>
+		</div>
+		<script>
+			const w = document.querySelectorAll(".weapon");
+
+			handler();
+			w.forEach((f) => {
+				f.addEventListener("input", handler);
+			});
+
+			function handler() {
+				let val1 = parseFloat(document.getElementById("weapon1").value);
+				let val2 = parseFloat(document.getElementById("weapon2").value);
+				let largerVal = 0;
+				let fusionVal = 0;
+
+				if (val1 > val2) {
+					largerVal = val1;
+				} else {
+					largerVal = val2;
+				}
+
+				fusionVal = largerVal * 1.1;
+
+				if (fusionVal >= 58) {
+					fusionVal = 60;
+				}
+
+				document.getElementById("result").innerHTML = fusionVal.toFixed(1);
+			}
+		</script>
+	</body>
+</html>
