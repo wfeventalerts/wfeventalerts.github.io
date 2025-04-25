@@ -62,7 +62,14 @@
 					let largerVal = 0;
 					let fusionVal = 0;
 
-					if (val1 < minV || val1 > maxV || val2 < minV || val2 > maxV) {
+					if (
+						isNaN(val1) ||
+						isNaN(val2) ||
+						val1 < minV ||
+						val1 > maxV ||
+						val2 < minV ||
+						val2 > maxV
+					) {
 						result.innerHTML = "Invalid value entered";
 						result.classList.add("error");
 						return;
